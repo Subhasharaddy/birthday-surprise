@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <canvas id="confetti"></canvas>
+    <div id="particles-container"></div>
+    
+    <!-- Landing Page -->
+    <div id="landing-page" class="section active">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+        <div class="content">
+            <h1 id="landing-title" class="animate-up font-serif gold-text glow-text"></h1>
+            <p id="landing-subtitle" class="animate-up delay-1"></p>
+            <div class="cake-illustration animate-up delay-2">
+                <div class="cake-new">
+                    <div class="flame-container"><div class="new-flame"></div></div>
+                    <div class="cake-top"></div>
+                    <div class="cake-middle"></div>
+                    <div class="cake-bottom"></div>
+                </div>
+            </div>
+            <button id="surprise-btn" class="btn btn-gold animate-up delay-3">Open Your Surprise</button>
+            <div class="scroll-hint animate-up delay-4">✨ discover the magic ✨</div>
+        </div>
+    </div>
+
+    <div id="main-experience" class="hidden">
+        
+        <!-- Audio Controls -->
+        <div class="audio-controls">
+            <button id="music-toggle" class="icon-btn" aria-label="Toggle Music">
+                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+            </button>
+            <audio id="bg-music" loop>
+                <source src="assets/music.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+
+        <!-- Countdown Section -->
+        <section id="countdown-section" class="section burgundy-bg">
+            <div class="glass-card reveal gold-border-subtle">
+                <h2 id="countdown-heading" class="section-title gold-gradient-text font-serif">Counting down to the big day!</h2>
+                <div id="timer" class="timer">
+                    <div class="time-box"><span id="days">00</span><p>Days</p></div>
+                    <div class="time-box"><span id="hours">00</span><p>Hours</p></div>
+                    <div class="time-box"><span id="minutes">00</span><p>Minutes</p></div>
+                    <div class="time-box"><span id="seconds">00</span><p>Seconds</p></div>
+                </div>
+                <div id="celebration-message" class="hidden celebration-text font-serif gold-text"></div>
+                <button id="make-wish-btn" class="btn btn-primary mt-4">Make a Wish 🎂</button>
+            </div>
+        </section>
+
+        <!-- Message Section (Envelope) -->
+        <section id="message-section" class="section cream-bg">
+            <div class="envelope-container reveal" id="envelope">
+                <p class="click-instruction dark-red-text">Click to open your letter</p>
+                <div class="envelope">
+                    <div class="flap"></div>
+                    <div class="wax-seal">♥</div>
+                    <div class="letter">
+                        <h2 id="message-title" class="font-serif dark-red-text"></h2>
+                        <div id="message-content" class="burgundy-text"></div>
+                        <p id="message-signature" class="signature dark-red-text"></p>
+                    </div>
+                    <div class="front"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Memories Section -->
+        <section id="memories-section" class="section burgundy-bg">
+            <h2 id="memories-title" class="section-title font-serif gold-gradient-text reveal"></h2>
+            <div class="gallery" id="gallery-container">
+                <!-- Injected via JS -->
+            </div>
+        </section>
+
+        <!-- Reasons Section -->
+        <section id="reasons-section" class="section blush-bg">
+            <h2 id="reasons-title" class="section-title font-serif dark-red-text reveal"></h2>
+            <div class="reasons-grid" id="reasons-container">
+                <!-- Injected via JS -->
+            </div>
+        </section>
+
+        <!-- Final Surprise Section -->
+        <section id="final-surprise-section" class="section red-gradient-bg">
+            <div class="glow-orb orb-3"></div>
+            <div class="final-content reveal text-center">
+                <h1 id="final-heading" class="font-serif gold-text glow-text section-title"></h1>
+                <p id="final-message" class="cream-text text-lg"></p>
+                
+                <div class="gift-container" id="celebrate-again-container">
+                    <div class="gift-box">
+                        <div class="gift-lid"></div>
+                        <div class="gift-ribbon-v"></div>
+                        <div class="gift-ribbon-h"></div>
+                        <div class="gift-bow"></div>
+                    </div>
+                </div>
+
+                <button id="celebrate-again-btn" class="btn btn-gold mt-4">Celebrate Again 🎉</button>
+            </div>
+        </section>
+        
+        <footer class="burgundy-bg cream-text">
+            <p>Made with ❤️ for <span id="footer-name" class="gold-text"></span></p>
+        </footer>
+    </div>
+
+    <!-- Lightbox for Gallery -->
+    <div id="lightbox" class="lightbox hidden">
+        <span class="close-lightbox gold-text">&times;</span>
+        <img id="lightbox-img" src="" alt="Memory">
+        <p id="lightbox-caption" class="cream-text font-serif"></p>
+        <button id="lightbox-prev" class="lightbox-nav">&lt;</button>
+        <button id="lightbox-next" class="lightbox-nav">&gt;</button>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
