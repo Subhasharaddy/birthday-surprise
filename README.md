@@ -84,3 +84,4 @@ Copy this link and send it to your special someone!
 - [ ] I opened `index.html` on my computer and everything looks good.
 - [ ] I successfully pushed the files to GitHub.
 - [ ] GitHub Pages is enabled and the live link works.
+- [ ] <!-- refresh GitHub Pages build -->
