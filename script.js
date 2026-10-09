@@ -336,17 +336,45 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 10. Audio Controls
     const musicToggle = document.getElementById('music-toggle');
+    const musicIcon = document.getElementById('music-icon');
+    const musicText = document.getElementById('music-text');
     const bgMusic = document.getElementById('bg-music');
+    const musicFeedback = document.getElementById('music-feedback');
     let isPlaying = false;
+    
+    const playSvg = '<svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" style="vertical-align: middle; margin-right: 5px;"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>';
+    const pauseSvg = '<svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" style="vertical-align: middle; margin-right: 5px;"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>';
+
+    function showMusicFeedback(message) {
+        if (!musicFeedback) return;
+        musicFeedback.innerText = message;
+        musicFeedback.classList.remove('hidden');
+        setTimeout(() => {
+            musicFeedback.classList.add('hidden');
+        }, 4000);
+    }
 
     musicToggle.addEventListener('click', () => {
         if (isPlaying) {
             bgMusic.pause();
-            musicToggle.innerHTML = '<svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>';
+            isPlaying = false;
+            if (musicIcon) musicIcon.innerHTML = playSvg;
+            if (musicText) musicText.innerText = "Play Music";
         } else {
-            bgMusic.play().catch(e => console.log("Audio file might be missing or blocked."));
-            musicToggle.innerHTML = '<svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>';
+            const playPromise = bgMusic.play();
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    isPlaying = true;
+                    if (musicIcon) musicIcon.innerHTML = pauseSvg;
+                    if (musicText) musicText.innerText = "Pause Music";
+                }).catch(e => {
+                    isPlaying = false;
+                    if (musicIcon) musicIcon.innerHTML = playSvg;
+                    if (musicText) musicText.innerText = "Play Music";
+                    showMusicFeedback("Audio file is missing or cannot be played.");
+                    console.log("Audio play error:", e);
+                });
+            }
         }
-        isPlaying = !isPlaying;
     });
 });

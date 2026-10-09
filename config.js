@@ -40,12 +40,11 @@ const CONFIG = {
     memories: {
         title: "Beautiful Memories",
         photos: [
-            { path: "assets/memory1.jpg", caption: "That unforgettable trip we took together." },
-            { path: "assets/memory2.jpg", caption: "Laughing until we cried." },
-            { path: "assets/memory3.jpg", caption: "A perfect summer day." },
-            { path: "assets/memory4.jpg", caption: "Celebrating milestones." },
-            { path: "assets/memory5.jpg", caption: "Just being silly." },
-            { path: "assets/memory6.jpg", caption: "A moment I'll always cherish." }
+            { path: "assets/photos/photo1.jpeg", caption: "That unforgettable trip we took together." },
+            { path: "assets/photos/photo2.jpeg", caption: "Laughing until we cried." },
+            { path: "assets/photos/photo3.jpeg", caption: "A perfect summer day." },
+            { path: "assets/photos/photo4.jpeg", caption: "Celebrating milestones." },
+            { path: "assets/photos/photo5.jpeg", caption: "Just being silly." }
         ]
     },
 

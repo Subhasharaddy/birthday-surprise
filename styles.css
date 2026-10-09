@@ -593,18 +593,22 @@ body {
 /* Audio Controls */
 .audio-controls {
     position: fixed; bottom: 2rem; right: 2rem; z-index: 100;
+    display: flex; flex-direction: column; align-items: flex-end; gap: 10px;
 }
-.icon-btn {
-    background: rgba(54, 4, 13, 0.7);
-    backdrop-filter: blur(8px);
-    color: var(--gold);
-    width: 55px; height: 55px; border-radius: 50%;
-    display: flex; justify-content: center; align-items: center;
-    cursor: pointer; transition: all 0.3s ease;
-    border: 2px solid var(--gold);
+.music-btn {
+    display: flex; align-items: center; gap: 8px;
+    padding: 0.8rem 1.5rem;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
-.icon-btn:hover { background: rgba(139, 0, 0, 0.9); transform: scale(1.1) rotate(5deg); }
+.music-feedback {
+    background: rgba(54, 4, 13, 0.9); color: var(--gold);
+    padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.9rem;
+    border: 1px solid var(--gold);
+    opacity: 1; transition: opacity 0.5s ease;
+    text-align: right;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+.music-feedback.hidden { opacity: 0; pointer-events: none; }
 
 /* Animations */
 .animate-up { opacity: 0; transform: translateY(40px); animation: fadeUp 1.2s forwards cubic-bezier(0.2, 0.8, 0.2, 1); }
