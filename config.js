@@ -1,6 +1,6 @@
 const CONFIG = {
     // General Info
-    recipientName: "sanjana",
+    recipientName: "ened okey",
     senderName: "Subhasharaddy",
     
     // Theme preferences (Premium Red & Gold)
