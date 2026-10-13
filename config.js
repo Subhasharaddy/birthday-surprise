@@ -21,7 +21,7 @@ const CONFIG = {
     // Countdown
     countdown: {
         // Format: YYYY-MM-DDTHH:MM:SS (Viewer's local time)
-        targetDate: "2026-10-10T00:00:00", 
+        targetDate: "2026-14-22T00:00:00", 
         celebrationMessage: "It's Finally Here! Happy Birthday!"
     },
 
